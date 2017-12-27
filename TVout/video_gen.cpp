@@ -210,44 +210,68 @@ void render_line6c() {
 		"ADD	r26,r28\n\t"
 		"ADC	r27,r29\n\t"
 		//save PORTB
-		"svprt	%[port]\n\t"
-		
+		"in		r16,%[port]\n\t"
+		ANDI_HWS
 		"rjmp	enter6\n"
 	"loop6:\n\t"
 		"bst	__tmp_reg__,0\n\t"			//8
-		"o1bs	%[port]\n"
+		BLD_HWS
+		"out	%[port],r16\n"
 	"enter6:\n\t"
 		"LD		__tmp_reg__,X+\n\t"			//1
-		"delay1\n\t"
+		"nop\n"
 		"bst	__tmp_reg__,7\n\t"
-		"o1bs	%[port]\n\t"
-		"delay3\n\t"						//2
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"						//2
 		"bst	__tmp_reg__,6\n\t"
-		"o1bs	%[port]\n\t"
-		"delay3\n\t"						//3
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"						//3
 		"bst	__tmp_reg__,5\n\t"
-		"o1bs	%[port]\n\t"
-		"delay3\n\t"						//4
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"						//4
 		"bst	__tmp_reg__,4\n\t"
-		"o1bs	%[port]\n\t"
-		"delay3\n\t"						//5
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"						//5
 		"bst	__tmp_reg__,3\n\t"
-		"o1bs	%[port]\n\t"
-		"delay3\n\t"						//6
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"						//6
 		"bst	__tmp_reg__,2\n\t"
-		"o1bs	%[port]\n\t"
-		"delay3\n\t"						//7
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"						//7
 		"bst	__tmp_reg__,1\n\t"
-		"o1bs	%[port]\n\t"
+		BLD_HWS
+		"out	%[port],r16\n"
 		"dec	%[hres]\n\t"
 		"brne	loop6\n\t"					//go too loopsix
-		"delay2\n\t"
+		"nop\n\t"
+		"nop\n"
 		"bst	__tmp_reg__,0\n\t"			//8
-		"o1bs	%[port]\n"
+		BLD_HWS
+		"out	%[port],r16\n"
 		
-		"svprt	%[port]\n\t"
+		"in		r16,%[port]\n\t"
+		ANDI_HWS
 		BST_HWS
-		"o1bs	%[port]\n\t"
+		BLD_HWS
+		"out	%[port],r16\n"
 		:
 		: [port] "i" (_SFR_IO_ADDR(PORT_VID)),
 		"x" (display.screen),
@@ -264,43 +288,59 @@ void render_line5c() {
 		"ADD	r26,r28\n\t"
 		"ADC	r27,r29\n\t"
 		//save PORTB
-		"svprt	%[port]\n\t"
-		
+		"in		r16,%[port]\n\t"
+		ANDI_HWS
 		"rjmp	enter5\n"
 	"loop5:\n\t"
 		"bst	__tmp_reg__,0\n\t"			//8
-		"o1bs	%[port]\n"
+		BLD_HWS
+		"out	%[port],r16\n"
 	"enter5:\n\t"
 		"LD		__tmp_reg__,X+\n\t"			//1
 		"bst	__tmp_reg__,7\n\t"
-		"o1bs	%[port]\n\t"
-		"delay2\n\t"						//2
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n"						//2
 		"bst	__tmp_reg__,6\n\t"
-		"o1bs	%[port]\n\t"
-		"delay2\n\t"						//3
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n"						//3
 		"bst	__tmp_reg__,5\n\t"
-		"o1bs	%[port]\n\t"
-		"delay2\n\t"						//4
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n"						//4
 		"bst	__tmp_reg__,4\n\t"
-		"o1bs	%[port]\n\t"
-		"delay2\n\t"						//5
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n"						//5
 		"bst	__tmp_reg__,3\n\t"
-		"o1bs	%[port]\n\t"
-		"delay2\n\t"						//6
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n\t"
+		"nop\n"						//6
 		"bst	__tmp_reg__,2\n\t"
-		"o1bs	%[port]\n\t"
-		"delay1\n\t"						//7
+		BLD_HWS
+		"out	%[port],r16\n"
+		"nop\n"						//7
 		"dec	%[hres]\n\t"
 		"bst	__tmp_reg__,1\n\t"
-		"o1bs	%[port]\n\t"
+		BLD_HWS
+		"out	%[port],r16\n"
 		"brne	loop5\n\t"					//go too loop5
-		"delay1\n\t"
+		"nop\n"
 		"bst	__tmp_reg__,0\n\t"			//8
-		"o1bs	%[port]\n"
+		BLD_HWS
+		"out	%[port],r16\n"
 		
-		"svprt	%[port]\n\t"
+		"in		r16,%[port]\n\t"
+		ANDI_HWS
 		BST_HWS
-		"o1bs	%[port]\n\t"
+		BLD_HWS
+		"out	%[port],r16\n"
 		:
 		: [port] "i" (_SFR_IO_ADDR(PORT_VID)),
 		"x" (display.screen),
@@ -323,32 +363,39 @@ void render_line4c() {
 		"out	%[port],__tmp_reg__\n\t"
 	"enter4:\n\t"
 		"LD		__tmp_reg__,X+\n\t"			//1
-		"delay1\n\t"
+		"nop\n"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay2\n\t"						//2
+		"nop\n\t"
+		"nop\n"						//2
 		"lsl	__tmp_reg__\n\t"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay2\n\t"						//3
+		"nop\n\t"
+		"nop\n"						//3
 		"lsl	__tmp_reg__\n\t"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay2\n\t"						//4
+		"nop\n\t"
+		"nop\n"						//4
 		"lsl	__tmp_reg__\n\t"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay2\n\t"						//5
+		"nop\n\t"
+		"nop\n"						//5
 		"lsl	__tmp_reg__\n\t"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay2\n\t"						//6
+		"nop\n\t"
+		"nop\n"						//6
 		"lsl	__tmp_reg__\n\t"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay1\n\t"						//7
+		"nop\n"						//7
 		"lsl	__tmp_reg__\n\t"
 		"dec	%[hres]\n\t"
 		"out	%[port],__tmp_reg__\n\t"
 		"brne	loop4\n\t"					//go too loop4
-		"delay1\n\t"						//8
+		"nop\n"						//8
 		"lsl	__tmp_reg__\n\t"
 		"out	%[port],__tmp_reg__\n\t"
-		"delay3\n\t"
+		"nop\n\t"
+		"nop\n\t"
+		"nop\n"
 		"cbi	%[port],7\n\t"
 		:
 		: [port] "i" (_SFR_IO_ADDR(PORT_VID)),
@@ -457,7 +504,8 @@ void render_line3c() {
 		"byteshift\n\t"	//29
 		"byteshift\n\t"	//30
 		
-		"delay2\n\t"
+		"nop\n\t"
+		"nop\n"
 		"cbi	%[port],7\n\t"
 		:
 		: [port] "i" (_SFR_IO_ADDR(PORT_VID)),
