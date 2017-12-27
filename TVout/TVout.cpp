@@ -875,3 +875,18 @@ void TVout::noTone() {
 	TCCR2B = 0;
 	PORT_SND &= ~(_BV(SND_PIN)); //set pin 11 to 0
 } // end of noTone
+
+void TVout::capture() {
+  captureFlag = 1;
+  while (captureFlag > 0);
+}
+
+void TVout::resume() {
+  resume_render();
+}
+
+void TVout::setDataCapture(int line, int wait, uint8_t *buf) {
+  dataCaptureLine = line;
+  dataCaptureWait = wait;
+  dataCaptureBuf = buf;
+}

@@ -45,6 +45,11 @@ extern TVout_vid display;
 extern void (*hbi_hook)();
 extern void (*vbi_hook)();
 
+extern volatile char captureFlag;
+extern int dataCaptureLine;
+extern int dataCaptureWait;
+extern uint8_t * dataCaptureBuf;
+
 void render_setup(uint8_t mode, uint8_t x, uint8_t y, uint8_t *scrnptr);
 
 void blank_line();
@@ -60,5 +65,11 @@ void render_line6c();
 void render_line5c();
 void render_line4c();
 void render_line3c();
+
+void renderACO_line5c();
+void capture_line5c();
+void dataCapture_line5c();
+void resume_render();
+
 static void inline wait_until(uint8_t time);
 #endif

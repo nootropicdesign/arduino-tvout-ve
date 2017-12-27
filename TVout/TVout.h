@@ -112,6 +112,11 @@ public:
 	void tone(unsigned int frequency, unsigned long duration_ms);
 	void tone(unsigned int frequency);
 	void noTone();
+
+	void capture();
+	void resume();
+	void setDataCapture(int line, int wait, uint8_t *buf);
+
 	
 //The following function definitions can be found in TVoutPrint.cpp
 //printing functions
