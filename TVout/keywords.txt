@@ -17,7 +17,7 @@ invert	KEYWORD2
 
 begin	KEYWORD2
 end	KEYWORD2
-force_vscale KEYWORD2
+force_vscale	KEYWORD2
 force_outstart	KEYWORD2
 force_linestart	KEYWORD2
 hres	KEYWORD2
