@@ -4,7 +4,8 @@ This is a library for generating composite video on an ATmega microcontroller an
 
 This repository is based upon the last published version on Google Code, known as Beta1. It has been patched to get around compilation issues associated with using assembly macros on newer versions of the Arduino IDE. The compilation problems with macros emerged after Arduino 1.6.8.
 
-Install the 3 libraries in your Arduino sketchbook with the following structure:
+The three zip files TVout.zip, TVoutfonts.zip, and pollserial.zip can be installed in Arduino with Sketch > Include Library > Add .ZIP Library, or you can install the 3 libraries in your Arduino sketchbook with the following structure:
+
 
 ```
 Arduino sketchbook
