@@ -1,12 +1,10 @@
-#include <TVout.h>
+#include <TVout_ve.h>
 #include <fontALL.h>
 #define W 128
 #define H 96
 
-TVout tv;
-unsigned char x, y;
-unsigned char c;
-unsigned char minX, minY, maxX, maxY;
+TVout_ve tv;
+unsigned char x,y;
 char s[32];
 
 
@@ -44,60 +42,15 @@ void initInputProcessing() {
   ACSR &= ~_BV(ACIC);  // disable analog comparator input capture
 }
 
-// Required
 ISR(INT0_vect) {
   display.scanLine = 0;
 }
 
-
 void loop() {
   tv.capture();
-
-  // uncomment if tracking dark objects
   //tv.fill(INVERT);
-
-  // compute bounding box
-  minX = W;
-  minY = H;
-  maxX = 0;
-  maxY = 0;
-  boolean found = 0;
-  for (int y = 0; y < H; y++) {
-    for (int x = 0; x < W; x++) {
-      c = tv.get_pixel(x, y);
-      if (c == 1) {
-        found = true;
-        if (x < minX) {
-          minX = x;
-        }
-        if (x > maxX) {
-          maxX = x;
-        }
-        if (y < minY) {
-          minY = y;
-        }
-        if (y > maxY) {
-          maxY = y;
-        }
-      }
-    }
-  }
-
-  // draw bounding box
-  tv.fill(0);
-  if (found) {
-    tv.draw_line(minX, minY, maxX, minY, 1);
-    tv.draw_line(minX, minY, minX, maxY, 1);
-    tv.draw_line(maxX, minY, maxX, maxY, 1);
-    tv.draw_line(minX, maxY, maxX, maxY, 1);
-    sprintf(s, "%d, %d", ((maxX + minX) / 2), ((maxY + minY) / 2));
-    tv.print(0, 0, s);
-  } else {
-    tv.print(0, 0, "not found");
-  }
-
-
   tv.resume();
   tv.delay_frame(5);
+  delay(1);
 }
 

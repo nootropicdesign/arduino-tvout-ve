@@ -1,10 +1,10 @@
-#include <TVout.h>
+#include <TVout_ve.h>
 #include <fontALL.h>
 
 #define W 136
 #define H 96
 
-TVout tv;
+TVout_ve tv;
 unsigned char x,y;
 unsigned char originx = 5;
 unsigned char originy = 80;

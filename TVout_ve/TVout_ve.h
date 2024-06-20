@@ -28,8 +28,8 @@ from a frame buffer stored in sram.  This implementation is done
 completly by interupt and will return give as much cpu time to the
 application as possible.
 */
-#ifndef TVOUT_H
-#define TVOUT_H
+#ifndef TVOUT_VE_H
+#define TVOUT_VE_H
 
 #include <stdint.h>
 #include <avr/io.h>
@@ -67,9 +67,9 @@ application as possible.
 #define invert(color)				fill(2)
 
 /*
-TVout.cpp contains a brief expenation of each function.
+TVout_ve.cpp contains a brief expenation of each function.
 */
-class TVout {
+class TVout_ve {
 public:
 	uint8_t * screen;
 	
@@ -118,7 +118,7 @@ public:
 	void setDataCapture(int line, int wait, uint8_t *buf);
 
 	
-//The following function definitions can be found in TVoutPrint.cpp
+//The following function definitions can be found in TVout_vePrint.cpp
 //printing functions
 	void print_char(uint8_t x, uint8_t y, unsigned char c);
 	void set_cursor(uint8_t, uint8_t);

@@ -1,11 +1,11 @@
-#include <TVout.h>
+#include <TVout_ve.h>
 #include <fontALL.h>
 #include "edge_templates.h"
 
 #define W 128
 #define H 96
 
-TVout tv;
+TVout_ve tv;
 int x,y;
 unsigned char tmp1[W/8];
 unsigned char tmp2[W/8];
@@ -51,7 +51,7 @@ ISR(INT0_vect) {
 
 void loop() {
 
-  // Tell the enhanced TVout library to capture the next full frame.
+  // Tell the enhanced TVout_ve library to capture the next full frame.
   tv.capture();
 
   // Invert the image to look for dark areas.

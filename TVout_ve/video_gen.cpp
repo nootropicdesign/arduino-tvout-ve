@@ -37,7 +37,7 @@
 //#define REMOVE3C
 
 int renderLine;
-TVout_vid display;
+TVout_ve_vid display;
 void (*render_line)();			//remove me
 void (*line_handler)();			//remove me
 void (*hbi_hook)() = &empty;

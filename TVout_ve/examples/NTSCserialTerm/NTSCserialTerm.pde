@@ -1,8 +1,8 @@
-#include <TVout.h>
+#include <TVout_ve.h>
 #include <pollserial.h>
 #include <fontALL.h>
 
-TVout TV;
+TVout_ve TV;
 pollserial pserial;
 
 void setup()  {

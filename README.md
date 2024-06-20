@@ -12,7 +12,7 @@ Arduino sketchbook
     |
     +--libraries
           |
-          +--TVout
+          +--TVout_ve
           |     |
           |     +--...
           |

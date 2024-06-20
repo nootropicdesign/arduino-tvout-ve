@@ -1,4 +1,4 @@
-#include <TVout.h>
+#include <TVout_ve.h>
 #include <fontALL.h>
 #include <pollserial.h>
 #include "reverse.h"
@@ -12,7 +12,7 @@
 #define CC 0xB0
 #define CHANNEL 0 // actual channel (1) minus 1
 
-TVout tv;
+TVout_ve tv;
 unsigned char x,y;
 pollserial pserial;
 byte noteHistory[HISTORY_LEN];

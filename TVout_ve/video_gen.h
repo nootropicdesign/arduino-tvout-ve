@@ -38,9 +38,9 @@ typedef struct {
 	char vscale;			//combine me too.
 	char vsync_end;			//remove me
 	uint8_t * screen;
-} TVout_vid;
+} TVout_ve_vid;
 
-extern TVout_vid display;
+extern TVout_ve_vid display;
 
 extern void (*hbi_hook)();
 extern void (*vbi_hook)();
